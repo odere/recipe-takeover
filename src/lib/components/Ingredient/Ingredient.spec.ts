@@ -12,7 +12,7 @@ describe('Test Ingredient.svelte', async () => {
 		name: orange.name
 	};
 
-	it('Should render ingredient data', () => {
+	it('Should render Ingredient', () => {
 		render(Ingredient, props);
 
 		expect(screen.getByText(props.name as string)).toBeInTheDocument();
