@@ -1,6 +1,8 @@
 <script type="ts" lang="ts">
-	import IngredientGroup from '$lib/components/IngredientGroup.svelte';
-	import InstructionStep from '$lib/components/InstructionStep.svelte';
+	import IngredientGroup from '$lib/components/IngredientGroup/IngredientGroup.svelte';
+	import InstructionStep from '$lib/components/InstructionStep/InstructionStep.svelte';
+
+	import '$lib/styles/global-styles.css';
 
 	export let ingredientGroups: App.IngredientGroup[] = [];
 	export let instructionSteps: string[] = [];
@@ -31,30 +33,6 @@
 		{/if}
 	</div>
 {/if}
-
-<svelte:head>
-	<style>
-		:root {
-			--checked-text-decoration: line-through;
-			--font-size: 1rem;
-			--gap-unit: 0.25rem;
-		}
-
-		body {
-			font-size: 16px;
-		}
-
-		@media print {
-			:root {
-				--gap-unit: 0.5rem;
-			}
-
-			body {
-				font-size: 10px;
-			}
-		}
-	</style>
-</svelte:head>
 
 <style>
 	.root {
