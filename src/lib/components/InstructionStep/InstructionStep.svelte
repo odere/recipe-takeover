@@ -1,8 +1,10 @@
 <script type="ts" lang="ts">
+	import classNames from 'classnames';
+
 	export let instruction: string = '';
 	export let checked = false;
 
-	$: checkedClassName = checked ? 'checked' : '';
+	$: rootCn = classNames('root', { checked });
 
 	const onChange = () => {
 		checked = !checked;
@@ -10,7 +12,7 @@
 </script>
 
 {#if instruction !== ''}
-	<label for={instruction} class={`root ${checkedClassName}`}>
+	<label for={instruction} class={rootCn}>
 		<input
 			class="instruction-step-checkbox"
 			type="checkbox"
