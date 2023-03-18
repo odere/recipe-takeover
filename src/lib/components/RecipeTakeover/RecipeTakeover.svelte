@@ -1,10 +1,11 @@
 <script type="ts" lang="ts">
-	import IngredientGroup from '$lib/components/IngredientGroup/IngredientGroup.svelte';
+	import IngredientGroupComponent from '$lib/components/IngredientGroup/IngredientGroup.svelte';
 	import InstructionStep from '$lib/components/InstructionStep/InstructionStep.svelte';
+	import type { IngredientGroup } from '$lib/types';
 
 	import '$lib/styles/global-styles.css';
 
-	export let ingredientGroups: App.IngredientGroup[] = [];
+	export let ingredientGroups: IngredientGroup[] = [];
 	export let instructionSteps: string[] = [];
 </script>
 
@@ -15,7 +16,7 @@
 				{#each ingredientGroups as group, i}
 					{#key `${i}-${group}`}
 						<li class="ingredient-group">
-							<IngredientGroup {...group} />
+							<IngredientGroupComponent {...group} />
 						</li>
 					{/key}
 				{/each}

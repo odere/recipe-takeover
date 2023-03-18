@@ -11,7 +11,7 @@ const meta = {
 	tags: ['autodocs'],
 	args: {
 		ingredientGroups: fruitSaladRecipe.ingredientGroups,
-		instructionSteps: fruitSaladRecipe.instructionSteps,
+		instructionSteps: fruitSaladRecipe.instructionSteps
 	}
 } satisfies Meta<RecipeTakeover>;
 
@@ -23,6 +23,6 @@ export const Default: Story = {};
 export const RandomRecipe: Story = {
 	args: {
 		ingredientGroups: getRandomRecipe().ingredientGroups,
-		instructionSteps: getRandomRecipe().instructionSteps,
+		instructionSteps: getRandomRecipe().instructionSteps
 	}
 };

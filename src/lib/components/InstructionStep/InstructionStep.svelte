@@ -1,7 +1,7 @@
 <script type="ts" lang="ts">
 	import classNames from 'classnames';
 
-	export let instruction: string = '';
+	export let instruction = '';
 	export let checked = false;
 
 	$: rootCn = classNames('root', { checked });

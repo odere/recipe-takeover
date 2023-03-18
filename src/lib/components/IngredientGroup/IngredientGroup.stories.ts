@@ -18,7 +18,7 @@ const meta = {
 	},
 	args: {
 		name: fruitGroup.name,
-		ingredients: fruitGroup.ingredients,
+		ingredients: fruitGroup.ingredients
 	}
 } satisfies Meta<IngredientGroup>;
 

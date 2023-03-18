@@ -1,9 +1,10 @@
 <script type="ts" lang="ts">
 	import classNames from 'classnames';
+	import type { Ingredient } from '$lib/types';
 
-	export let amount: App.Ingredient['amount'] = 0;
-	export let name: App.Ingredient['name'] = '';
-	export let unit: App.Ingredient['unit'] = 'g';
+	export let amount: Ingredient['amount'] = 0;
+	export let name: Ingredient['name'] = '';
+	export let unit: Ingredient['unit'] = 'g';
 	export let id: string;
 	export let checked = false;
 

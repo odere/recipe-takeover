@@ -1,9 +1,10 @@
 <script type="ts" lang="ts">
 	import classNames from 'classnames';
 	import Ingredient from '$lib/components/Ingredient/Ingredient.svelte';
+	import type { IngredientGroup } from '$lib/types';
 
-	export let name: App.IngredientGroup['name'];
-	export let ingredients: App.IngredientGroup['ingredients'] = [];
+	export let name: IngredientGroup['name'];
+	export let ingredients: IngredientGroup['ingredients'] = [];
 	export let checked = false;
 
 	$: rootCn = classNames('root', { checked });
