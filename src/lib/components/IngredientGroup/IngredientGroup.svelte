@@ -1,11 +1,12 @@
 <script type="ts" lang="ts">
-	import Ingredient from '$lib/components/Ingredient.svelte';
+	import classNames from 'classnames';
+	import Ingredient from '$lib/components/Ingredient/Ingredient.svelte';
 
 	export let name: App.IngredientGroup['name'];
 	export let ingredients: App.IngredientGroup['ingredients'] = [];
 	export let checked = false;
 
-	$: checkedClassName = checked ? 'checked' : '';
+	$: rootCn = classNames('root', { checked });
 
 	const onChange = () => {
 		checked = !checked;
@@ -13,7 +14,7 @@
 </script>
 
 {#if ingredients.length > 0}
-	<div class={`root ${checkedClassName}`}>
+	<div class={rootCn}>
 		<p class="ingredient-group-title">
 			<label for={name}>
 				<input
@@ -48,13 +49,13 @@
 		display: block;
 	}
 
+	li {
+		display: block;
+	}
+
 	.ingredients-list {
 		padding: 0;
 		margin-bottom: 0.5rem;
-	}
-
-	li {
-		display: block;
 	}
 
 	.ingredient-group-title {
