@@ -8,6 +8,7 @@
 	export let checked = false;
 
 	$: rootCn = classNames('root', { checked });
+	$: ingredientListCn = classNames('ingredients-list', { hidden: checked });
 
 	const onChange = () => {
 		checked = !checked;
@@ -15,7 +16,7 @@
 </script>
 
 {#if ingredients.length > 0}
-	<div class={rootCn}>
+	<div class="root">
 		<p class="ingredient-group-title">
 			<label for={name}>
 				<input
@@ -28,15 +29,20 @@
 				<span class="ingredient-group-name">{name}</span>
 			</label>
 		</p>
-		<ul class="ingredients-list">
-			{#each ingredients as ingredient, i}
-				{#key `${name}-${ingredient.name}`}
-					<li class="ingredients-item">
-						<Ingredient {...ingredient} id={`${name}-${ingredient.name}`} />
-					</li>
-				{/key}
-			{/each}
-		</ul>
+
+		{#if !checked}
+			{#key 'ingredients-list'}
+				<ul class="ingredients-list">
+					{#each ingredients as ingredient}
+						{#key `${name}-${ingredient.name}`}
+							<li class="ingredients-item">
+								<Ingredient {...ingredient} id={`${name}-${ingredient.name}`} />
+							</li>
+						{/key}
+					{/each}
+				</ul>
+			{/key}
+		{/if}
 	</div>
 {/if}
 
@@ -63,10 +69,6 @@
 		font-size: var(--title-font-size);
 		margin: 0;
 		margin-bottom: 0.25rem;
-	}
-
-	.root.checked .ingredients-list {
-		display: none;
 	}
 
 	@media print {
