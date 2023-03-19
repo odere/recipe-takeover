@@ -1,4 +1,4 @@
-import { render, fireEvent, screen, prettyDOM } from '@testing-library/svelte';
+import { render, fireEvent, screen } from '@testing-library/svelte';
 
 import { fruitGroup } from '../../mocks/ingredientGroupsMock';
 
