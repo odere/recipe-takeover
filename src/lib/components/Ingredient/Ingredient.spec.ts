@@ -20,42 +20,16 @@ describe('Test Ingredient.svelte', async () => {
 		expect(screen.getByText(props.amount as number)).toBeInTheDocument();
 	});
 
-	it('Should check/uncheck by clicking on checkbox', async () => {
+	it('Should check/uncheck ingredient', async () => {
 		render(Ingredient, props);
 
 		expect(document.querySelector('.checked')).not.toBeInTheDocument();
 
-		let checkbox = document.querySelector('input');
-		if (checkbox) {
-			await fireEvent.click(checkbox);
-		}
+		await fireEvent.click(screen.getByText(props.name as string));
 
 		expect(document.querySelector('.checked')).toBeInTheDocument();
 
-		checkbox = document.querySelector('input');
-		if (checkbox) {
-			await fireEvent.click(checkbox);
-		}
-
-		expect(document.querySelector('.checked')).not.toBeInTheDocument();
-	});
-
-	it('Should check/uncheck by clicking on checkbox label(component wrapper)', async () => {
-		render(Ingredient, props);
-
-		expect(document.querySelector('.checked')).not.toBeInTheDocument();
-
-		let label = document.querySelector('label');
-		if (label) {
-			await fireEvent.click(label);
-		}
-
-		expect(document.querySelector('.checked')).toBeInTheDocument();
-
-		label = document.querySelector('label');
-		if (label) {
-			await fireEvent.click(label);
-		}
+		await fireEvent.click(screen.getByText(props.name as string));
 
 		expect(document.querySelector('.checked')).not.toBeInTheDocument();
 	});
